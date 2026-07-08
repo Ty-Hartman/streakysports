@@ -117,8 +117,9 @@ function showRightHidden() {
 
 function playAnim(el, className) {
   el.classList.remove(className);
-  void el.offsetWidth;
-  el.classList.add(className);
+  requestAnimationFrame(() => {
+    el.classList.add(className);
+  });
 }
 
 function updateScoreDisplay() {
