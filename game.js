@@ -55,8 +55,21 @@ function drawUnusedCard() {
 }
 
 function fillCard({ avatarEl, nameEl, metaEl, card }, data) {
-  avatarEl.textContent = initials(data.player);
   avatarEl.className = `card-avatar pos-${data.position}`;
+  avatarEl.innerHTML = "";
+  if (data.photo) {
+    const img = document.createElement("img");
+    img.src = data.photo;
+    img.alt = data.player;
+    img.className = "card-avatar-img";
+    img.onerror = () => {
+      avatarEl.innerHTML = "";
+      avatarEl.textContent = initials(data.player);
+    };
+    avatarEl.appendChild(img);
+  } else {
+    avatarEl.textContent = initials(data.player);
+  }
   nameEl.textContent = data.player;
   metaEl.textContent = `${data.team} · ${data.position} · ${data.year}`;
   card.dataset.id = data.id;
