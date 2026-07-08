@@ -32,6 +32,12 @@ const els = {
   startGameBtn: document.getElementById("start-game"),
 };
 
+function formatSeason(year) {
+  const startYY = year % 100;
+  const endYY = (year + 1) % 100;
+  return `${String(startYY).padStart(2, "0")}/${String(endYY).padStart(2, "0")}`;
+}
+
 function initials(name) {
   return name
     .split(" ")
@@ -71,7 +77,7 @@ function fillCard({ avatarEl, nameEl, metaEl, card }, data) {
     avatarEl.textContent = initials(data.player);
   }
   nameEl.textContent = data.player;
-  metaEl.textContent = `${data.team} · ${data.position} · ${data.year}`;
+  metaEl.textContent = `${data.team} · ${data.position} · ${formatSeason(data.year)}`;
   card.dataset.id = data.id;
 }
 
