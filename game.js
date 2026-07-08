@@ -28,6 +28,8 @@ const els = {
   finalScore: document.getElementById("final-score"),
   finalHighScore: document.getElementById("final-high-score"),
   playAgain: document.getElementById("play-again"),
+  startScreen: document.getElementById("start-screen"),
+  startGameBtn: document.getElementById("start-game"),
 };
 
 function initials(name) {
@@ -152,5 +154,7 @@ function handleGuess(direction) {
 els.btnHigher.addEventListener("click", () => handleGuess("higher"));
 els.btnLower.addEventListener("click", () => handleGuess("lower"));
 els.playAgain.addEventListener("click", startGame);
-
-startGame();
+els.startGameBtn.addEventListener("click", () => {
+  els.startScreen.classList.add("hidden");
+  startGame();
+});

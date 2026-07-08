@@ -233,6 +233,45 @@ body {
   margin: 0.35rem 0;
 }
 
+.start-content {
+  max-width: 460px;
+}
+
+.logo {
+  font-size: 3.5rem;
+  line-height: 1;
+}
+
+.start-title {
+  margin: 0.5rem 0 0.1rem;
+  font-size: 2rem;
+}
+
+.start-subtitle {
+  margin: 0 0 1.5rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+}
+
+.instructions {
+  text-align: left;
+  margin: 0 0 1.5rem;
+  padding-left: 1.25rem;
+  color: var(--text);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.instructions li {
+  margin-bottom: 0.6rem;
+}
+
+.instructions li:last-child {
+  margin-bottom: 0;
+}
+
 @media (max-width: 640px) {
   .board {
     flex-direction: column;
