@@ -1,0 +1,250 @@
+:root {
+  --bg: #0f172a;
+  --panel: #1e293b;
+  --panel-light: #334155;
+  --text: #f1f5f9;
+  --muted: #94a3b8;
+  --accent: #22c55e;
+  --accent-dark: #16a34a;
+  --danger: #ef4444;
+  --qb: #f97316;
+  --rb: #22c55e;
+  --wr: #3b82f6;
+  --te: #a855f7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.topbar {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+}
+
+.topbar h1 {
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.scores {
+  display: flex;
+  gap: 1rem;
+}
+
+.score-box {
+  background: var(--panel);
+  border-radius: 0.75rem;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  min-width: 70px;
+}
+
+.score-label {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.score-value {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.board {
+  flex: 1;
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1rem 1.5rem 2.5rem;
+}
+
+.vs {
+  font-weight: 800;
+  color: var(--muted);
+  font-size: 1.25rem;
+}
+
+.card {
+  background: var(--panel);
+  border-radius: 1.25rem;
+  padding: 2rem 1.5rem;
+  flex: 1;
+  max-width: 340px;
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.5rem;
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.card.flash-correct {
+  box-shadow: 0 0 0 3px var(--accent);
+}
+
+.card.flash-wrong {
+  box-shadow: 0 0 0 3px var(--danger);
+}
+
+.card-avatar {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+
+.card-avatar.pos-QB { background: var(--qb); }
+.card-avatar.pos-RB { background: var(--rb); }
+.card-avatar.pos-WR { background: var(--wr); }
+.card-avatar.pos-TE { background: var(--te); }
+
+.card-name {
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.card-meta {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.card-points {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-top: 0.75rem;
+  min-height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card.hidden-points .card-points {
+  color: var(--muted);
+}
+
+.card-points-label {
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.guess-buttons {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.guess-btn {
+  border: none;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.guess-btn:active {
+  transform: scale(0.96);
+}
+
+.guess-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.guess-btn.higher {
+  background: var(--accent);
+  color: #052e12;
+}
+
+.guess-btn.lower {
+  background: #f59e0b;
+  color: #451a03;
+}
+
+.guess-btn.play-again {
+  background: var(--accent);
+  color: #052e12;
+  margin-top: 1.5rem;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.overlay.hidden {
+  display: none;
+}
+
+.overlay-content {
+  background: var(--panel-light);
+  border-radius: 1.25rem;
+  padding: 2.5rem 3rem;
+  text-align: center;
+  max-width: 420px;
+}
+
+.overlay-content h2 {
+  margin-top: 0;
+  color: var(--danger);
+}
+
+.final-score {
+  font-size: 1.1rem;
+  margin: 0.35rem 0;
+}
+
+@media (max-width: 640px) {
+  .board {
+    flex-direction: column;
+  }
+  .card {
+    max-width: 100%;
+    width: 100%;
+    min-height: 280px;
+  }
+  .topbar {
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: center;
+  }
+}

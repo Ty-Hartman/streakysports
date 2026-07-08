@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Higher or Lower: Fantasy Football Seasons</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Higher / Lower &mdash; Fantasy Seasons</h1>
+    <div class="scores">
+      <div class="score-box">
+        <span class="score-label">Streak</span>
+        <span id="score" class="score-value">0</span>
+      </div>
+      <div class="score-box">
+        <span class="score-label">Best</span>
+        <span id="high-score" class="score-value">0</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="board">
+    <section id="left-card" class="card revealed">
+      <div class="card-avatar" id="left-avatar"></div>
+      <div class="card-name" id="left-name"></div>
+      <div class="card-meta" id="left-meta"></div>
+      <div class="card-points" id="left-points"></div>
+      <div class="card-points-label">Fantasy Points (PPR)</div>
+    </section>
+
+    <div class="vs">VS</div>
+
+    <section id="right-card" class="card hidden-points">
+      <div class="card-avatar" id="right-avatar"></div>
+      <div class="card-name" id="right-name"></div>
+      <div class="card-meta" id="right-meta"></div>
+      <div class="card-points" id="right-points">?</div>
+      <div class="card-points-label" id="right-points-label">Higher or Lower?</div>
+
+      <div class="guess-buttons">
+        <button id="btn-higher" class="guess-btn higher">&#9650; Higher</button>
+        <button id="btn-lower" class="guess-btn lower">&#9660; Lower</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="game-over" class="overlay hidden">
+    <div class="overlay-content">
+      <h2>Game Over</h2>
+      <p id="final-answer"></p>
+      <p class="final-score">Final Streak: <span id="final-score">0</span></p>
+      <p class="final-score">Best Streak: <span id="final-high-score">0</span></p>
+      <button id="play-again" class="guess-btn play-again">Play Again</button>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
