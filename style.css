@@ -355,12 +355,28 @@ body {
   width: 100%;
   max-width: 900px;
   display: flex;
-  gap: 0.5rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
   padding: 1.25rem 1.5rem 0;
 }
 
+.brand-btn {
+  border: none;
+  background: none;
+  color: var(--text);
+  font-size: 1.1rem;
+  font-weight: 800;
+  cursor: pointer;
+  padding: 0.5rem 0;
+}
+
+.tab-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
 .tab-btn {
-  flex: 1;
   border: none;
   border-radius: 0.75rem;
   padding: 0.75rem 1rem;
@@ -388,6 +404,75 @@ body {
   display: none;
 }
 
+.home-hero {
+  text-align: center;
+  padding: 3rem 1.5rem 1.5rem;
+}
+
+.home-logo {
+  font-size: 3.5rem;
+  line-height: 1;
+}
+
+.home-title {
+  font-size: 2.25rem;
+  margin: 0.5rem 0 0.25rem;
+}
+
+.home-subtitle {
+  color: var(--muted);
+  margin: 0;
+}
+
+.game-picker {
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  gap: 1.25rem;
+  padding: 1rem 1.5rem 3rem;
+}
+
+.game-card {
+  flex: 1;
+  background: var(--panel);
+  border: none;
+  border-radius: 1.25rem;
+  padding: 2rem 1.5rem;
+  color: var(--text);
+  text-align: center;
+  cursor: pointer;
+  font-family: inherit;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.game-card:hover {
+  background: var(--panel-light);
+  transform: translateY(-2px);
+}
+
+.game-card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.game-card-title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.game-card-desc {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 640px) {
+  .game-picker {
+    flex-direction: column;
+  }
+}
+
 .omo-banner {
   width: 100%;
   max-width: 900px;
@@ -396,6 +481,36 @@ body {
   color: var(--muted);
   font-weight: 700;
   letter-spacing: 0.02em;
+}
+
+.omo-results {
+  width: 100%;
+  max-width: 700px;
+  margin: 0.5rem 1.5rem 1.5rem;
+  background: var(--panel-light);
+  border: 1px solid var(--danger);
+  border-radius: 1rem;
+  padding: 1.25rem 1.5rem;
+  text-align: center;
+}
+
+.omo-results.hidden {
+  display: none;
+}
+
+.omo-results h2 {
+  margin: 0 0 0.5rem;
+  color: var(--danger);
+  font-size: 1.25rem;
+}
+
+.omo-results .final-score {
+  margin: 0.2rem 0;
+  font-size: 1rem;
+}
+
+.omo-results .play-again {
+  margin-top: 0.75rem;
 }
 
 .omo-grid {

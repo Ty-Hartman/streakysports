@@ -8,11 +8,34 @@
 </head>
 <body>
   <nav class="tab-bar">
-    <button id="tab-higher-lower" class="tab-btn active">Higher / Lower</button>
-    <button id="tab-odd-man-out" class="tab-btn">Odd Man Out</button>
+    <button id="tab-home" class="brand-btn">🏆 Streaky Sports</button>
+    <div class="tab-group">
+      <button id="tab-higher-lower" class="tab-btn">Higher / Lower</button>
+      <button id="tab-odd-man-out" class="tab-btn">Odd Man Out</button>
+    </div>
   </nav>
 
-  <section id="higher-lower-game" class="game-section">
+  <section id="home-screen" class="game-section">
+    <div class="home-hero">
+      <div class="home-logo">🏆</div>
+      <h1 class="home-title">Streaky Sports</h1>
+      <p class="home-subtitle">Pick a game and keep your streak alive</p>
+    </div>
+    <div class="game-picker">
+      <button id="pick-higher-lower" class="game-card">
+        <div class="game-card-icon">🏈</div>
+        <div class="game-card-title">Higher / Lower</div>
+        <div class="game-card-desc">Guess which NFL season scored more fantasy points.</div>
+      </button>
+      <button id="pick-odd-man-out" class="game-card">
+        <div class="game-card-icon">🔍</div>
+        <div class="game-card-title">Odd Man Out</div>
+        <div class="game-card-desc">Spot the real player who doesn't belong in the top 10.</div>
+      </button>
+    </div>
+  </section>
+
+  <section id="higher-lower-game" class="game-section hidden">
     <div id="start-screen" class="overlay">
       <div class="overlay-content start-content">
         <div class="logo">🏈</div>
@@ -108,19 +131,17 @@
       </div>
     </header>
 
+    <div id="omo-game-over" class="omo-results hidden">
+      <h2>Game Over</h2>
+      <p id="omo-final-answer"></p>
+      <p class="final-score">Final Streak: <span id="omo-final-score">0</span></p>
+      <p class="final-score">Best Streak: <span id="omo-final-high-score">0</span></p>
+      <button id="omo-play-again" class="guess-btn play-again">Play Again</button>
+    </div>
+
     <div id="omo-category-banner" class="omo-banner"></div>
 
     <main id="omo-grid" class="omo-grid"></main>
-
-    <div id="omo-game-over" class="overlay hidden">
-      <div class="overlay-content">
-        <h2>Game Over</h2>
-        <p id="omo-final-answer"></p>
-        <p class="final-score">Final Streak: <span id="omo-final-score">0</span></p>
-        <p class="final-score">Best Streak: <span id="omo-final-high-score">0</span></p>
-        <button id="omo-play-again" class="guess-btn play-again">Play Again</button>
-      </div>
-    </div>
   </section>
 
   <script src="data.js"></script>
