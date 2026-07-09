@@ -3,75 +3,130 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Higher or Lower: Fantasy Football Seasons</title>
+<title>Streaky Sports</title>
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="start-screen" class="overlay">
-    <div class="overlay-content start-content">
-      <div class="logo">🏈</div>
-      <h1 class="start-title">Higher / Lower</h1>
-      <p class="start-subtitle">Fantasy Football Seasons</p>
-      <ul class="instructions">
-        <li>Two real NFL player-seasons face off, one revealed and one hidden.</li>
-        <li>Guess whether the hidden season scored <strong>higher</strong> or <strong>lower</strong> in fantasy points (PPR).</li>
-        <li>Guess right and it slides in to become the new revealed season &mdash; keep the streak alive.</li>
-        <li>One wrong guess ends the run. Beat your best streak!</li>
-      </ul>
-      <button id="start-game" class="guess-btn play-again">Start Playing</button>
-    </div>
-  </div>
+  <nav class="tab-bar">
+    <button id="tab-higher-lower" class="tab-btn active">Higher / Lower</button>
+    <button id="tab-odd-man-out" class="tab-btn">Odd Man Out</button>
+  </nav>
 
-  <header class="topbar">
-    <h1>Higher / Lower &mdash; Fantasy Seasons</h1>
-    <div class="scores">
-      <div class="score-box">
-        <span class="score-label">Streak</span>
-        <span id="score" class="score-value">0</span>
-      </div>
-      <div class="score-box">
-        <span class="score-label">Best</span>
-        <span id="high-score" class="score-value">0</span>
+  <section id="higher-lower-game" class="game-section">
+    <div id="start-screen" class="overlay">
+      <div class="overlay-content start-content">
+        <div class="logo">🏈</div>
+        <h1 class="start-title">Higher / Lower</h1>
+        <p class="start-subtitle">Fantasy Football Seasons</p>
+        <ul class="instructions">
+          <li>Two real NFL player-seasons face off, one revealed and one hidden.</li>
+          <li>Guess whether the hidden season scored <strong>higher</strong> or <strong>lower</strong> in fantasy points (PPR).</li>
+          <li>Guess right and it slides in to become the new revealed season &mdash; keep the streak alive.</li>
+          <li>One wrong guess ends the run. Beat your best streak!</li>
+        </ul>
+        <button id="start-game" class="guess-btn play-again">Start Playing</button>
       </div>
     </div>
-  </header>
 
-  <main class="board">
-    <section id="left-card" class="card revealed">
-      <div class="card-avatar" id="left-avatar"></div>
-      <div class="card-name" id="left-name"></div>
-      <div class="card-meta" id="left-meta"></div>
-      <div class="card-points" id="left-points"></div>
-      <div class="card-points-label">Fantasy Points (PPR)</div>
-    </section>
-
-    <div class="vs">VS</div>
-
-    <section id="right-card" class="card hidden-points">
-      <div class="card-avatar" id="right-avatar"></div>
-      <div class="card-name" id="right-name"></div>
-      <div class="card-meta" id="right-meta"></div>
-      <div class="card-points" id="right-points">?</div>
-      <div class="card-points-label" id="right-points-label">Higher or Lower?</div>
-
-      <div class="guess-buttons">
-        <button id="btn-higher" class="guess-btn higher">&#9650; Higher</button>
-        <button id="btn-lower" class="guess-btn lower">&#9660; Lower</button>
+    <header class="topbar">
+      <h1>Higher / Lower &mdash; Fantasy Seasons</h1>
+      <div class="scores">
+        <div class="score-box">
+          <span class="score-label">Streak</span>
+          <span id="score" class="score-value">0</span>
+        </div>
+        <div class="score-box">
+          <span class="score-label">Best</span>
+          <span id="high-score" class="score-value">0</span>
+        </div>
       </div>
-    </section>
-  </main>
+    </header>
 
-  <div id="game-over" class="overlay hidden">
-    <div class="overlay-content">
-      <h2>Game Over</h2>
-      <p id="final-answer"></p>
-      <p class="final-score">Final Streak: <span id="final-score">0</span></p>
-      <p class="final-score">Best Streak: <span id="final-high-score">0</span></p>
-      <button id="play-again" class="guess-btn play-again">Play Again</button>
+    <main class="board">
+      <section id="left-card" class="card revealed">
+        <div class="card-avatar" id="left-avatar"></div>
+        <div class="card-name" id="left-name"></div>
+        <div class="card-meta" id="left-meta"></div>
+        <div class="card-points" id="left-points"></div>
+        <div class="card-points-label">Fantasy Points (PPR)</div>
+      </section>
+
+      <div class="vs">VS</div>
+
+      <section id="right-card" class="card hidden-points">
+        <div class="card-avatar" id="right-avatar"></div>
+        <div class="card-name" id="right-name"></div>
+        <div class="card-meta" id="right-meta"></div>
+        <div class="card-points" id="right-points">?</div>
+        <div class="card-points-label" id="right-points-label">Higher or Lower?</div>
+
+        <div class="guess-buttons">
+          <button id="btn-higher" class="guess-btn higher">&#9650; Higher</button>
+          <button id="btn-lower" class="guess-btn lower">&#9660; Lower</button>
+        </div>
+      </section>
+    </main>
+
+    <div id="game-over" class="overlay hidden">
+      <div class="overlay-content">
+        <h2>Game Over</h2>
+        <p id="final-answer"></p>
+        <p class="final-score">Final Streak: <span id="final-score">0</span></p>
+        <p class="final-score">Best Streak: <span id="final-high-score">0</span></p>
+        <button id="play-again" class="guess-btn play-again">Play Again</button>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <section id="odd-man-out-game" class="game-section hidden">
+    <div id="omo-start-screen" class="overlay">
+      <div class="overlay-content start-content">
+        <div class="logo">🔍</div>
+        <h1 class="start-title">Odd Man Out</h1>
+        <p class="start-subtitle">Find the Imposter</p>
+        <ul class="instructions">
+          <li>10 real NFL players are shown for a stat category and season (e.g. Top 10 Passing Yards &mdash; 2016).</li>
+          <li>9 of them really were the top 10 that season. 1 doesn't belong.</li>
+          <li>Click players you think <strong>belong</strong> to confirm them and reveal their real stat.</li>
+          <li>Click the imposter by mistake and the run ends. Clear all 9 to advance!</li>
+        </ul>
+        <button id="omo-start-game" class="guess-btn play-again">Start Playing</button>
+      </div>
+    </div>
+
+    <header class="topbar">
+      <h1 id="omo-round-title">Odd Man Out</h1>
+      <div class="scores">
+        <div class="score-box">
+          <span class="score-label">Streak</span>
+          <span id="omo-score" class="score-value">0</span>
+        </div>
+        <div class="score-box">
+          <span class="score-label">Best</span>
+          <span id="omo-high-score" class="score-value">0</span>
+        </div>
+      </div>
+    </header>
+
+    <div id="omo-category-banner" class="omo-banner"></div>
+
+    <main id="omo-grid" class="omo-grid"></main>
+
+    <div id="omo-game-over" class="overlay hidden">
+      <div class="overlay-content">
+        <h2>Game Over</h2>
+        <p id="omo-final-answer"></p>
+        <p class="final-score">Final Streak: <span id="omo-final-score">0</span></p>
+        <p class="final-score">Best Streak: <span id="omo-final-high-score">0</span></p>
+        <button id="omo-play-again" class="guess-btn play-again">Play Again</button>
+      </div>
+    </div>
+  </section>
 
   <script src="data.js"></script>
   <script src="game.js"></script>
+  <script src="data-oddmanout.js"></script>
+  <script src="oddmanout.js"></script>
+  <script src="tabs.js"></script>
 </body>
 </html>
