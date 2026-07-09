@@ -513,6 +513,18 @@ body {
   margin-top: 0.75rem;
 }
 
+.omo-results-win {
+  border-color: var(--accent);
+}
+
+.omo-results-win h2 {
+  color: var(--accent);
+}
+
+.omo-results-win .higher {
+  margin-top: 0.75rem;
+}
+
 .omo-grid {
   width: 100%;
   max-width: 900px;

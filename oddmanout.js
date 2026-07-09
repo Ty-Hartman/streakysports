@@ -20,6 +20,10 @@ const omoEls = {
   playAgain: document.getElementById("omo-play-again"),
   startScreen: document.getElementById("omo-start-screen"),
   startGameBtn: document.getElementById("omo-start-game"),
+  roundComplete: document.getElementById("omo-round-complete"),
+  roundCompleteAnswer: document.getElementById("omo-round-complete-answer"),
+  roundCompleteScore: document.getElementById("omo-round-complete-score"),
+  nextRoundBtn: document.getElementById("omo-next-round"),
 };
 
 function omoInitials(name) {
@@ -90,6 +94,7 @@ function omoStartGame() {
   omoState.usedIds.clear();
   omoState.locked = false;
   omoEls.overlay.classList.add("hidden");
+  omoEls.roundComplete.classList.add("hidden");
 
   omoState.round = omoDrawUnusedRound();
   omoRenderRound(omoState.round);
@@ -97,6 +102,7 @@ function omoStartGame() {
 }
 
 function omoNextRound() {
+  omoEls.roundComplete.classList.add("hidden");
   omoState.locked = false;
   omoState.round = omoDrawUnusedRound();
   omoRenderRound(omoState.round);
@@ -128,8 +134,10 @@ function omoHandleClick(index) {
       }
       omoUpdateScoreDisplay();
       setTimeout(() => {
-        omoNextRound();
-      }, 900);
+        omoEls.roundCompleteAnswer.textContent = `You correctly cleared all 9 real ${round_year_label(omoState.round)} leaders.`;
+        omoEls.roundCompleteScore.textContent = omoState.score;
+        omoEls.roundComplete.classList.remove("hidden");
+      }, 700);
     }
   } else {
     omoState.locked = true;
@@ -159,6 +167,7 @@ function round_year_label(round) {
 }
 
 omoEls.playAgain.addEventListener("click", omoStartGame);
+omoEls.nextRoundBtn.addEventListener("click", omoNextRound);
 omoEls.startGameBtn.addEventListener("click", () => {
   omoEls.startScreen.classList.add("hidden");
   omoStartGame();
